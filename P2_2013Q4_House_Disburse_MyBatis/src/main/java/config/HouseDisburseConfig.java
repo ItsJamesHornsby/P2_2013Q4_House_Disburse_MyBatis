@@ -6,12 +6,14 @@ import javax.sql.DataSource;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 
-@ComponentScan({"controller", "dao", "service", "mapper"})
+@ComponentScan({"disburse.controller", "disburse.dao"})
+@MapperScan("disburse.mapper")
 @SpringBootApplication
 public class HouseDisburseConfig {
 	

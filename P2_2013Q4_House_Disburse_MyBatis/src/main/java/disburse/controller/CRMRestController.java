@@ -1,0 +1,29 @@
+package disburse.controller;
+
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import disburse.dao.HouseDisburseDAO;
+import disburse.vo.HouseDisburseDetail;
+
+@RestController
+public class CRMRestController {
+
+	@Autowired
+	HouseDisburseDAO hdDAO;
+	
+	@PostMapping("/loadDisburse")
+	@ResponseBody
+	public List<HouseDisburseDetail> loadList(@RequestBody final List<HouseDisburseDetail> hdList) {
+		hdDAO.insert(hdList);
+		//System.out.println(hdList.get(0).toString());
+		return hdDAO.hDByYear();
+	}
+	
+}

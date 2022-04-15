@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.util.StringUtils;
 
 import disburse.mapper.HouseDisburseMapper;
+import disburse.service.MyBatisBatchInsert;
 import disburse.vo.HouseDisburseDetail;
 
 @Service
@@ -21,6 +22,9 @@ public class HouseDisburseDAO {
 		this.hdm = hdm;
 	}
 	
+	@Autowired
+	private MyBatisBatchInsert mybb;
+	//Challenge 1
 	public List<HouseDisburseDetail> getListOfAllHds() {
 		List<HouseDisburseDetail> hdn = hdm.getListOfAllHds();
 		//hdm.getListOfAllHds();
@@ -30,24 +34,24 @@ public class HouseDisburseDAO {
 		}
 		return hdn;
 	}
-	
+	//Challenge 2
 	public List<HouseDisburseDetail> getHDById(String id) {
 		List<HouseDisburseDetail> hdd = hdm.getHDById(id);
 		return hdd;
 	}
-	
+	//Challenge 4
 	public List<HouseDisburseDetail> getHighestAmount() {
 		List<HouseDisburseDetail> hdd = hdm.getHighestAmount();
 		return hdd;
 	}
-	
+	//Challenge 2.5
 	public List<HouseDisburseDetail> hDByYear() {
 		List<HouseDisburseDetail> hdd = hdm.postHDByYear();
 		return hdd;
 	}
-	public int insert(List<HouseDisburseDetail> hdList) {
-		int status = hdm.insertHDBatch(hdList);
-		return status;
+	public void insert(List<HouseDisburseDetail> hdList) {
+		mybb.insertBatch(hdList);
+		
 		//for (HouseDisburseDetail hdL : hdList) {
 		//	hdm.postHD(hdL.getBioGuideID(), hdL.getOffice(), hdL.getCategory(), hdL.getPayee(), hdL.getStartDate(), hdL.getEndDate(), hdL.getPurpose(), hdL.getAmount(), hdL.getYear());
 		//}

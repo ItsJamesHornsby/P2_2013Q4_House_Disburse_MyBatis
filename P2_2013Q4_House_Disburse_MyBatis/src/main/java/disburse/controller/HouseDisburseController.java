@@ -14,18 +14,20 @@ public class HouseDisburseController {
 	
 	@Autowired
 	HouseDisburseDAO hdDAO;
-	
+	//Challenge 1
 	@RequestMapping("all")
 	public String getHomePage(Model model) {
 		//System.out.println("get All Page MyBatis begin");
         model.addAttribute("hdList", hdDAO.getListOfAllHds());
 		return "disburse.html";
 	}
+	//Challenge 2
 	@GetMapping("bioGuideID/{id}")
 	public String getHDbyID(@PathVariable String id, Model model) {
 		model.addAttribute("hdList", hdDAO.getHDById(id));
 		return "disburse.html";
 	}
+	//Challenge 4
 	@GetMapping("highestAmount")
 	public String getHighestAmount(Model model) {
 		model.addAttribute("hdList", hdDAO.getHighestAmount());

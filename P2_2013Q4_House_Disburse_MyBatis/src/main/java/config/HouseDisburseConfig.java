@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 
-@ComponentScan({"disburse.controller", "disburse.dao"})
+@ComponentScan({"disburse.controller", "disburse.dao", "disburse.service"})
 @MapperScan("disburse.mapper")
 @SpringBootApplication
 public class HouseDisburseConfig {

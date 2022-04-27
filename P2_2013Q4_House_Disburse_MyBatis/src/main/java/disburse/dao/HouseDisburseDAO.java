@@ -51,7 +51,7 @@ public class HouseDisburseDAO {
 	}
 	public void insert(List<HouseDisburseDetail> hdList) {
 		mybb.insertBatch(hdList);
-		
+		//return hdm.getListOfAllHds();
 		//for (HouseDisburseDetail hdL : hdList) {
 		//	hdm.postHD(hdL.getBioGuideID(), hdL.getOffice(), hdL.getCategory(), hdL.getPayee(), hdL.getStartDate(), hdL.getEndDate(), hdL.getPurpose(), hdL.getAmount(), hdL.getYear());
 		//}

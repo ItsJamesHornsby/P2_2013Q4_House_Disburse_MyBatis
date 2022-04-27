@@ -76,9 +76,9 @@ public interface HouseDisburseMapper {
 	})
 	public int insertHDBatch(@Param("hd") List<HouseDisburseDetail> hdList);
 	
-	@Insert({"INSERT INTO T_2013Q4_HOUSE_DISBURSE (BIOGUIDE_ID, OFFICE, CATEGORY, PAYEE, START_DATE, END_DATE, PURPOSE, AMOUNT, YEAR)",
+	@Insert({"INSERT INTO T_2013Q4_HOUSE_DISBURSE (BIOGUIDE_ID, OFFICE, CATEGORY, PAYEE, START_DATE, END_DATE, PURPOSE, AMOUNT, YEAR) ",
 			"VALUES",
-			"(",
+			" (",
 			   "#{hd.bioGuideID},",
 			   "#{hd.office},",
 			   "#{hd.category},",
@@ -88,8 +88,29 @@ public interface HouseDisburseMapper {
 			   "#{hd.purpose},",
 			   "#{hd.amount},",
 			   "#{hd.year})"})
-	@Options(useGeneratedKeys=false, keyProperty="bioGuideID")
+	@Options(useGeneratedKeys=false, keyProperty="RECORDID")
 	public int insertHD(@Param("hd") HouseDisburseDetail hd );
+	/*
+	 	@Insert({"INSERT INTO T_2013Q4_HOUSE_DISBURSE (BIOGUIDE_ID, OFFICE, CATEGORY, PAYEE, START_DATE, END_DATE, PURPOSE, AMOUNT, YEAR) ",
+			"VALUES",
+			" (",
+			   "#{bioGuideID},",
+			   "#{office},",
+			   "#{category},",
+			   "#{payee},",
+			   "#{startDate},",
+			   "#{endDate},",
+			   "#{purpose},",
+			   "#{amount},",
+			   "#{year})"})
+	@Options(useGeneratedKeys=true, keyProperty="recordID")
+	public int insertHD(HouseDisburseDetail hd );
+	 */
+/*	@Insert({"INSERT INTO T_2013Q4_HOUSE_DISBURSE (BIOGUIDE_ID, OFFICE, CATEGORY, PAYEE, START_DATE, END_DATE, PURPOSE, AMOUNT, YEAR) ",
+		"VALUES ('A123422','HON. GARY L. JENSEN','TRAVEL','CITIBANK','12/28/12','12/28/12','COMMERCIAL TRANSPORTATION','-78.7','2020')",
+		   })
+@Options(useGeneratedKeys=true, keyProperty="RECORDID")
+public int insertHD(HouseDisburseDetail hd );*/
 	
 
 }
